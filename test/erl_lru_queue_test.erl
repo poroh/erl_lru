@@ -1,3 +1,11 @@
+%%
+%% Copyright (c) 2019 Dmitry Poroh
+%% All rights reserved.
+%% Distributed under the terms of the MIT License. See the LICENSE file.
+%%
+%% Using LRU as FIFO
+%%
+
 -module(erl_lru_queue_test).
 
 -include_lib("eunit/include/eunit.hrl").
@@ -28,5 +36,4 @@ remove_from_fifo_test() ->
     ?assertEqual(b, Key@2),
     ?assertEqual(2, Value@2),
     ?assertEqual(true, erl_lru:empty(LRU@6)),
-    ?debugFmt("~p", [ LRU@6 ]),
     ok.

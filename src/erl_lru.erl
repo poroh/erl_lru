@@ -18,6 +18,7 @@
          push/3,
          pop/1,
          empty/1,
+         size/1,
          take/2,
          has_key/2,
          lookup_and_update/2
@@ -94,6 +95,10 @@ empty(#lru{current_size = 0}) ->
 empty(#lru{}) ->
     false.
 
+-spec size(lru()) -> non_neg_integer().
+size(#lru{current_size = S}) ->
+    S.
+
 %% @doc Check if cache has element with key
 -spec has_key(key(), lru()) -> boolean().
 has_key(Key, #lru{lookup_cache = Cache}) ->
@@ -103,7 +108,7 @@ has_key(Key, #lru{lookup_cache = Cache}) ->
 -spec lookup_and_update(key(), lru()) -> {ok, value(), lru()} | error.
 lookup_and_update(Key, #lru{lookup_cache = Cache} = LRU) ->
     case maps:find(Key, Cache) of
-        {ok, Value} ->
+        {ok, {_, Value}} ->
             {ok, Value, update_key(Key, Value, LRU)};
         error ->
             error
@@ -164,7 +169,7 @@ pop_oldest(LRU) ->
 -spec apply_limits(lru()) ->  lru().
 apply_limits(#lru{max_size = unlimited} = LRU) ->
     LRU;
-apply_limits(#lru{current_size = CS, max_size = MaxSize} = LRU) when CS < MaxSize ->
+apply_limits(#lru{current_size = CS, max_size = MaxSize} = LRU) when CS =< MaxSize ->
     LRU;
 apply_limits(LRU) ->
     {_, _, NewLRU} = pop_oldest(LRU),
