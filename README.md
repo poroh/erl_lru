@@ -34,6 +34,17 @@ All read-only operations has O(1) complexity
 
 All modification operations has O(log(N)) complexity.
 
+## License
+
+MIT (http://github.com/poroh/erl_lru/blob/master/LICENSE)
+
+## Build
+
+```
+$ rebar3 compile
+
+```
+
 ## Under the hood
 
 Under the hood two data structures:
