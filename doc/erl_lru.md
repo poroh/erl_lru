@@ -44,11 +44,7 @@ value() = any()
 ## Function Index ##
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#add-3">add/3</a></td><td>Add new element to cache with defined key.</td></tr><tr><td valign="top"><a href="#empty-1">empty/1</a></td><td>Check if queue is empty.</td></tr><tr><td valign="top"><a href="#has_key-2">has_key/2</a></td><td>Check if cache has element with key
-Complexity: O(1).</td></tr><tr><td valign="top"><a href="#lookup_and_update-2">lookup_and_update/2</a></td><td>Lookup and update cache (LRU function).</td></tr><tr><td valign="top"><a href="#new-0">new/0</a></td><td>Create new unlimited cache.</td></tr><tr><td valign="top"><a href="#new-1">new/1</a></td><td>Create new limited cache with defined max size
-Complexity: O(1).</td></tr><tr><td valign="top"><a href="#pop-1">pop/1</a></td><td>Pop element from head.</td></tr><tr><td valign="top"><a href="#push-3">push/3</a></td><td>Push element to queue tail
-Complexity: O(log(N)).</td></tr><tr><td valign="top"><a href="#size-1">size/1</a></td><td>Get number of elements in the LRU cache.</td></tr><tr><td valign="top"><a href="#take-2">take/2</a></td><td>Take element from queue by key
-Complexity: O(log(N)).</td></tr></table>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#add-3">add/3</a></td><td>Add new element to cache with defined key.</td></tr><tr><td valign="top"><a href="#empty-1">empty/1</a></td><td>Check if queue is empty.</td></tr><tr><td valign="top"><a href="#has_key-2">has_key/2</a></td><td>Check if cache has element with key.</td></tr><tr><td valign="top"><a href="#lookup_and_update-2">lookup_and_update/2</a></td><td>Lookup and update cache (LRU function).</td></tr><tr><td valign="top"><a href="#new-0">new/0</a></td><td>Create new unlimited cache.</td></tr><tr><td valign="top"><a href="#new-1">new/1</a></td><td>Create new limited cache with defined max size.</td></tr><tr><td valign="top"><a href="#pop-1">pop/1</a></td><td>Pop element from head.</td></tr><tr><td valign="top"><a href="#push-3">push/3</a></td><td>Push element to queue tail.</td></tr><tr><td valign="top"><a href="#size-1">size/1</a></td><td>Get number of elements in the LRU cache.</td></tr><tr><td valign="top"><a href="#take-2">take/2</a></td><td>Take element from queue by key.</td></tr></table>
 
 
 <a name="functions"></a>
@@ -65,6 +61,7 @@ add(Key::<a href="#type-key">key()</a>, Value::<a href="#type-value">value()</a>
 <br />
 
 Add new element to cache with defined key.
+
 Complexity: O(log(N))
 
 <a name="empty-1"></a>
@@ -77,6 +74,7 @@ empty(Lru::<a href="#type-lru">lru()</a>) -&gt; boolean()
 <br />
 
 Check if queue is empty.
+
 Complexity: O(1)
 
 <a name="has_key-2"></a>
@@ -88,7 +86,8 @@ has_key(Key::<a href="#type-key">key()</a>, Lru::<a href="#type-lru">lru()</a>) 
 </code></pre>
 <br />
 
-Check if cache has element with key
+Check if cache has element with key.
+
 Complexity: O(1)
 
 <a name="lookup_and_update-2"></a>
@@ -101,6 +100,7 @@ lookup_and_update(Key::<a href="#type-key">key()</a>, Lru::<a href="#type-lru">l
 <br />
 
 Lookup and update cache (LRU function).
+
 Complexity: O(log(N))
 
 <a name="new-0"></a>
@@ -113,6 +113,7 @@ new() -&gt; <a href="#type-lru">lru()</a>
 <br />
 
 Create new unlimited cache.
+
 Complexity: O(1)
 
 <a name="new-1"></a>
@@ -125,6 +126,7 @@ new(MaxSize::pos_integer()) -&gt; <a href="#type-lru">lru()</a>
 <br />
 
 Create new limited cache with defined max size
+
 Complexity: O(1)
 
 <a name="pop-1"></a>
@@ -137,6 +139,7 @@ pop(LRU::<a href="#type-lru">lru()</a>) -&gt; {<a href="#type-key">key()</a>, <a
 <br />
 
 Pop element from head.
+
 Complexity: O(log(N))
 
 <a name="push-3"></a>
@@ -148,7 +151,8 @@ push(Key::<a href="#type-key">key()</a>, Value::<a href="#type-value">value()</a
 </code></pre>
 <br />
 
-Push element to queue tail
+Push element to queue tail.
+
 Complexity: O(log(N))
 
 <a name="size-1"></a>
@@ -173,5 +177,6 @@ take(Key::<a href="#type-key">key()</a>, LRU::<a href="#type-lru">lru()</a>) -&g
 <br />
 
 Take element from queue by key
+
 Complexity: O(log(N))
 
