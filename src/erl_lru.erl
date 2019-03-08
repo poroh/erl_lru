@@ -46,32 +46,38 @@
 %%====================================================================
 
 %% @doc Create new unlimited cache.
+%% Complexity: O(1)
 -spec new() -> lru().
 new() ->
     #lru{}.
 
 %% @doc Create new limited cache with defined max size
+%% Complexity: O(1)
 -spec new(MaxSize :: pos_integer()) -> lru().
 new(MaxSize) ->
     #lru{max_size = MaxSize}.
 
 %% @doc Add new element to cache with defined key.
+%% Complexity: O(log(N))
 -spec add(key(), value(), lru()) -> lru().
 add(Key, Value, LRU) ->
     NewLRU = add_item(Key, Value, LRU),
     apply_limits(NewLRU).
 
 %% @doc Push element to queue tail
+%% Complexity: O(log(N))
 -spec push(key(), value(), lru()) -> lru().
 push(Key, Value, LRU) ->
     add(Key, Value, LRU).
 
 %% @doc Pop element from head.
+%% Complexity: O(log(N))
 -spec pop(lru()) -> {key(), value(), lru()}.
 pop(LRU) ->
     pop_oldest(LRU).
 
 %% @doc Take element from queue by key
+%% Complexity: O(log(N))
 -spec take(key(), lru()) -> {value(), lru()} | error.
 take(Key, LRU) ->
     #lru{lookup_cache = LookupCache, usage = Usage, last = Last, current_size = CurrentSize} = LRU,
@@ -93,22 +99,27 @@ take(Key, LRU) ->
     end.
 
 %% @doc Check if queue is empty.
+%% Complexity: O(1)
 -spec empty(lru()) -> boolean().
 empty(#lru{current_size = 0}) ->
     true;
 empty(#lru{}) ->
     false.
 
+%% @doc Get number of elements in the LRU cache.
+%% Complexity: O(1)
 -spec size(lru()) -> non_neg_integer().
 size(#lru{current_size = S}) ->
     S.
 
 %% @doc Check if cache has element with key
+%% Complexity: O(1)
 -spec has_key(key(), lru()) -> boolean().
 has_key(Key, #lru{lookup_cache = Cache}) ->
     maps:is_key(Key, Cache).
 
 %% @doc Lookup and update cache (LRU function).
+%% Complexity: O(log(N))
 -spec lookup_and_update(key(), lru()) -> {ok, value(), lru()} | error.
 lookup_and_update(Key, #lru{lookup_cache = Cache} = LRU) ->
     case maps:find(Key, Cache) of
