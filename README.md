@@ -38,8 +38,8 @@ All modification operations has O(log(N)) complexity.
 
 Under the hood two data structures:
 
-# Unordered map: #{key() => {order(), value()}} for quick lookup
-# Binary search tree: gb_tree(order(), key()) for odering element in cache
+1. Unordered map: #{key() => {order(), value()}} for quick lookup
+2. Binary search tree: gb_tree(order(), key()) for odering element in cache
 
 order() is almost always incrementing integer which represent pseudo-time in the cache.
 * When new element is added to cache it has highes order() value
