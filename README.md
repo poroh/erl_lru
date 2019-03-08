@@ -10,6 +10,8 @@ This cache may be used in two manners;
 * Queue with remove operation
 * Least recently used cache
 
+Full module documentation is availble [here](http://github.com/poroh/erl_lru/blob/master/doc/erl_lru.md).
+
 ### Queue
 
 ```erlang
@@ -53,8 +55,6 @@ false = erl_lru:has_key(key1, LRU5),
 
 ...
 ```
-
-Full module documentation is availble [here](http://github.com/poroh/erl_lru/blob/master/doc/erl_lru.md).
 
 ## Performance
 
