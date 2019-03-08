@@ -6,6 +6,34 @@ Idea is to implement functional data structure that implements LRU.
 
 ## Usage
 
+This cache may be used in two manners;
+* Queue with remove operation
+* Least recently used cache
+
+### Queue
+
+```erlang
+
+Q0 = erl_lru:new(),
+
+%% Add new elements:
+Q1 = erl_lru:push(key1, value1, Q0),
+Q2 = erl_lru:push(key2, value2, Q1),
+Q3 = erl_lru:push(key3, value3, Q2),
+
+%% Remove element:
+{value2, Q4} = erl_lru:take(key2, Q3),
+
+%% Get element from head:
+{key1, value1, Q5}  = erl_lru:pop(Q4),
+{key3, value3, Q6}  = erl_lru:pop(Q5),
+
+...
+```
+
+
+### LRU
+
 ```erlang
 
 Size = 3,
