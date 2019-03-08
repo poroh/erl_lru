@@ -1,4 +1,11 @@
-[![Build Status](https://travis-ci.org/poroh/erl_lru.svg?branch=master)](https://travis-ci.org/poroh/erl_lru) [![Coverage Status](https://coveralls.io/repos/github/poroh/erl_lru/badge.svg?branch=master)](https://coveralls.io/github/poroh/erl_lru?branch=master)
 
-# erl_lru
-Erlang LRU cache
+
+# The erl_lru application #
+
+
+## Modules ##
+
+
+<table width="100%" border="0" summary="list of modules">
+<tr><td><a href="http://github.com/poroh/erl_lru/blob/master/doc/erl_lru.md" class="module">erl_lru</a></td></tr></table>
+

@@ -1,14 +1,14 @@
-%%
-%% Copyright (c) 2018 Dmitry Poroh
-%% All rights reserved.
-%% Distributed under the terms of the MIT License. See the LICENSE file.
-%%
-%% Erlang LRU cache/Queue with deletion by key.
-%%
-%% Motivation: For many purposes we need FIFO of elements with
-%% fast-enough deletion from the middle. This FIFO also can be used as
-%% LRU cache (Least Recently Used Cache).
-%%
+%%%
+%%% Copyright (c) 2018 Dmitry Poroh
+%%% All rights reserved.
+%%% Distributed under the terms of the MIT License. See the LICENSE file.
+%%%
+%%% Erlang LRU cache/Queue with deletion by key.
+%%%
+%%% Motivation: For many purposes we need FIFO of elements with
+%%% fast-enough deletion from the middle. This FIFO also can be used as
+%%% LRU cache (Least Recently Used Cache).
+%%%
 -module(erl_lru).
 
 %% API exports
@@ -23,6 +23,11 @@
          has_key/2,
          lookup_and_update/2
         ]).
+-export_type([lru/0]).
+
+%%====================================================================
+%% Types
+%%====================================================================
 
 -type key() :: any().
 -type value() :: any().
@@ -35,7 +40,6 @@
              }).
 
 -type lru() :: #lru{}.
--export_type([lru/0]).
 
 %%====================================================================
 %% API functions
