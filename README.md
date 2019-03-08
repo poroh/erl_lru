@@ -52,8 +52,8 @@ Under the hood two data structures:
 1. Unordered map: #{key() => {order(), value()}} for quick lookup
 2. Binary search tree: gb_tree(order(), key()) for odering element in cache
 
-order() is almost always incrementing integer which represent pseudo-time in the cache.
-* When new element is added to cache it has highes order() value
+order() is almost always incrementing integer which represent pseudo-time in the cache:
+* When new element is added to cache it has highest order() value
 * When exist element is updated its order value is changest to highest
 * When cache is overflowed element with lowest order is removed
 * When cache become empty highest order value is set to 0
